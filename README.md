@@ -30,13 +30,13 @@ To explore the dashboard, download the sample data file below and upload it when
 
 ## 📊 Features
 
-- **KPI Strip** — Total properties, portfolio value, total cost, average ROI, and total bedrooms at a glance
-- **Purchase Price vs Current Value** — Clustered bar chart showing capital appreciation per property
-- **ROI % Ranking** — Horizontal bar chart ranking every property by return on investment
-- **Portfolio Composition** — Donut chart breaking down portfolio by property type
-- **Price vs Stand Size** — Scatter plot mapping value efficiency across the portfolio
-- **Acquisition Timeline** — Area chart showing cumulative portfolio growth since first purchase
-- **Property Ledger** — Full sortable table with colour-coded property type badges
+- **KPI Strip** : Total properties, portfolio value, total cost, average ROI, and total bedrooms at a glance
+- **Purchase Price vs Current Value** : Clustered bar chart showing capital appreciation per property
+- **ROI % Ranking** : Horizontal bar chart ranking every property by return on investment
+- **Portfolio Composition** : Donut chart breaking down portfolio by property type
+- **Price vs Stand Size** : Scatter plot mapping value efficiency across the portfolio
+- **Acquisition Timeline** : Area chart showing cumulative portfolio growth since first purchase
+- **Property Ledger** : Full sortable table with colour-coded property type badges
 
 ---
 
@@ -94,7 +94,7 @@ The dashboard accepts any JSON file in the following format:
 
 ## 👤 About the Developer
 
-Built by **Nkosana Mlotshwa** — A graduate consultant and Business Analyst based in Johannesburg, South Africa.
+Built by **Nkosana Mlotshwa** who is a graduate consultant and Business Analyst based in Johannesburg, South Africa.
 
 This project is part of a broader effort to build practical, data-driven tools for independent property investors in South Africa.
 
