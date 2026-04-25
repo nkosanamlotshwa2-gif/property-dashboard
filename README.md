@@ -2,7 +2,7 @@
 
 ![PropertyOS](https://img.shields.io/badge/PropertyOS-Live-brightgreen) ![License](https://img.shields.io/badge/license-MIT-blue) ![Properties](https://img.shields.io/badge/properties-15-yellow) ![Built With](https://img.shields.io/badge/built%20with-Plotly.js-orange)
 
-> A lightweight, browser-based property portfolio dashboard built with HTML, JavaScript, and Plotly.js — no backend, no server, no cost.
+> A lightweight, browser-based property portfolio dashboard built with HTML, JavaScript, and Plotly.js with no backend, no server, no cost.
 
 ---
 
@@ -14,7 +14,7 @@ As a property investor managing a growing portfolio across Westdene, Johannesbur
 
 So I built one.
 
-PropertyOS is a single HTML file that runs entirely in the browser. You drop in a JSON file containing your property data and the dashboard instantly renders six interactive charts, a full KPI strip and a property ledger — with zero setup, zero cost and zero dependencies beyond an internet connection.
+PropertyOS is a single HTML file that runs entirely in the browser. You drop in a JSON file containing your property data and the dashboard instantly renders six interactive charts, a full KPI strip and a property ledger that you can use with zero setup, zero cost and zero dependencies beyond an internet connection.
 
 It is designed for independent property investors who want clarity on:
 
@@ -37,13 +37,13 @@ Download the sample dataset below, then upload it when prompted to explore the f
 
 ## 📊 Features
 
-- **KPI Strip** — Portfolio value, total cost, unrealised gain, average ROI and total bedrooms at a glance
-- **Purchase Price vs Current Value** — Clustered bar chart showing capital appreciation per property, sorted by gain
-- **ROI % Ranking** — Horizontal bar chart ranking every property by return on investment
-- **Portfolio Composition** — Donut chart breaking down the portfolio by property type
-- **Price vs Stand Size** — Scatter plot mapping purchase price against stand size, sized by bedrooms
-- **Acquisition Timeline** — Area chart showing cumulative portfolio cost from first purchase to present
-- **Property Ledger** — Full table with colour-coded property type badges and inline ROI bars
+- **KPI Strip** : Portfolio value, total cost, unrealised gain, average ROI and total bedrooms at a glance
+- **Purchase Price vs Current Value** : Clustered bar chart showing capital appreciation per property, sorted by gain
+- **ROI % Ranking** : Horizontal bar chart ranking every property by return on investment
+- **Portfolio Composition** : Donut chart breaking down the portfolio by property type
+- **Price vs Stand Size** : Scatter plot mapping purchase price against stand size, sized by bedrooms
+- **Acquisition Timeline** : Area chart showing cumulative portfolio cost from first purchase to present
+- **Property Ledger** : Full table with colour-coded property type badges and inline ROI bars
 
 ---
 
@@ -105,7 +105,7 @@ The dashboard accepts any JSON file structured as follows:
 
 He holds an LLB Honours degree from the University of Pretoria (GPA: 71%), alongside professional certifications in Microsoft Power BI, Risk Management from the New York Institute of Finance, and Google Data Analytics. He is currently completing a BSc in Computer Science through the University of London.
 
-His work sits at the intersection of legal and regulatory thinking, risk and data analytics, and systems design — with a focus on financial services, banking, property and technology. He approaches business problems the way an engineer approaches a structure: starting with the foundation, mapping the mechanics, and building solutions that scale.
+His work sits at the intersection of legal and regulatory thinking, risk and data analytics, and systems design with a focus on financial services, banking, property and technology. He approaches business problems the way an engineer approaches a structure: starting with the foundation, mapping the mechanics, and building solutions that scale.
 
 PropertyOS reflects that approach — a practical, data-driven tool built not to impress, but to work.
 
