@@ -11,7 +11,7 @@
 PropertyOS started as a personal problem worth solving.
 
 As a Graduate Consultant and Business Analyst working on a property analysis report for an investment portfolio across Westdene, Johannesburg, I found that existing tools were either too expensive, too complex, or simply not built for the South African market. Spreadsheets were fragile. Power BI required a paid licence and a backend. Nothing gave me a clean, fast, shareable view of my portfolio without friction.
-
+Add dashboard sample to README
 So I built one.
 
 PropertyOS is a single HTML file that runs entirely in the browser. You drop in a JSON file containing your property data and the dashboard instantly renders six interactive charts, a full KPI strip and a property ledger that you can use with zero setup, zero cost and zero dependencies beyond an internet connection.
