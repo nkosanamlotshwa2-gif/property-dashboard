@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PropertyOS</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+:root{--bg:#0a0d14;--surface:#111520;--surface2:#181d2c;--border:#1e2535;--accent:#c8f53e;--accent2:#3ee8f5;--accent3:#f5833e;--accent4:#a855f7;--text:#e8ecf5;--muted:#6b7498}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:monospace;background:var(--bg);color:var(--text);min-height:100vh}
+#upload-screen{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg);transition:opacity .6s ease}
+#upload-screen.hide{opacity:0;pointer-events:none}
+h1{font-size:3rem;margin-bottom:8px}h1 span{color:var(--accent)}
+.sub{color:var(--muted);font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:48px}
+.drop-zone{width:min(480px,90vw);border:1.5px dashed var(--border);border-radius:16px;padding:56px 40px;text-align:center;background:var(--surface);cursor:pointer}
+.drop-zone:hover{border-color:var(--accent)}
+.icon{font-size:3rem;margin-bottom:16px}
+.drop-title{font-size:1.1rem;font-weight:600;margin-bottom:8px}
+.drop-hint{color:var(--muted);font-size:.75rem;line-height:1.6;margin-bottom:24px}
+.btn{padding:12px 32px;background:var(--accent);color:var(--bg);border:none;border-radius:8px;font-weight:700;font-size:.85rem;cursor:pointer}
+#file-input{display:none}
+#dashboard{display:none;opacity:0;transition:opacity .6s}
+#dashboard.show{display:block}
+#dashboard.visible{opacity:1}
+header{padding:24px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,13,20,0.9);backdrop-filter:blur(16px);z-index:50}
+.logo{font-size:1.3rem;font-weight:800}.logo span{color:var(--accent)}
+.reset-btn{padding:7px 16px;background:transparent;color:var(--muted);border:1px solid var(--border);border-radius:6px;font-family:monospace;font-size:.72rem;cursor:pointer}
+.reset-btn:hover{border-color:var(--accent3);color:var(--accent3)}
+.kpi-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--border);border-bottom:1px solid var(--border)}
+.kpi{background:var(--surface);padding:24px 28px}
+.kpi-label{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.kpi-value{font-size:1.8rem;font-weight:700;margin-bottom:4px}
+.kpi-sub{font-size:.7rem;color:var(--muted)}
+.kpi-sub.pos{color:var(--accent)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:1px}
+.card{background:var(--surface);padding:28px}
+.card.wide{grid-column:1/-1}
+.card-title{font-size:.95rem;font-weight:700;margin-bottom:4px}
+.card-desc{font-size:.68rem;color:var(--muted);margin-bottom:20px}
+table{width:100%;border-collapse:collapse;font-size:.73rem}
+th{text-align:left;padding:10px 14px;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400;border-bottom:1px solid var(--border)}
+td{padding:10px 14px;border-bottom:1px solid rgba(30,37,53,0.6)}
+tbody tr:hover td{background:rgba(200,245,62,0.04)}
+.pill{display:inline-block;padding:2px 9px;border-radius:4px;font-size:.65rem}
+.pill.fh{background:rgba(200,245,62,0.12);color:var(--accent)}
+.pill.st{background:rgba(62,232,245,0.12);color:var(--accent2)}
+.pill.sc{background:rgba(168,85,247,0.15);color:var(--accent4)}
+.pill.fc{background:rgba(245,131,62,0.12);color:var(--accent3)}
+footer{padding:20px 40px;border-top:1px solid var(--border);font-size:.68rem;color:var(--muted);display:flex;justify-content:space-between;margin-top:40px}
+footer span{color:var(--accent)}
+@media(max-width:768px){.grid{grid-template-columns:1fr}.card.wide{grid-column:1}}
+</style>
+</head>
+<body>
+<div id="upload-screen">
+<h1>Property<span>OS</span></h1>
+<div class="sub">Portfolio Intelligence Dashboard</div>
+<div class="drop-zone" id="drop-zone">
+<div class="icon">📂</div>
+<div class="drop-title">Drop your JSON file here</div>
+<div class="drop-hint">Accepts property portfolio data in JSON format<br/>Fields: Property ID, Address, Property Type,<br/>Purchase Price (R), Current Value (R), Bedrooms, Stand Size (m2)</div>
+<button class="btn" id="browse-btn">Browse File</button>
+<input type="file" id="file-input" accept=".json"/>
+</div>
+</div>
+<div id="dashboard">
+<header>
+<div class="logo">Property<span>OS</span></div>
+<button class="reset-btn" id="reset-btn">↩ New File</button>
+</header>
+<div class="kpi-strip">
+<div class="kpi"><div class="kpi-label">Total Properties</div><div class="kpi-value" id="kpi-count">—</div><div class="kpi-sub" id="kpi-types">—</div></div>
+<div class="kpi"><div class="kpi-label">Portfolio Value</div><div class="kpi-value" id="kpi-value">—</div><div class="kpi-sub pos" id="kpi-gain">—</div></div>
+<div class="kpi"><div class="kpi-label">Total Cost</div><div class="kpi-value" id="kpi-cost">—</div><div class="kpi-sub" id="kpi-avg">—</div></div>
+<div class="kpi"><div class="kpi-label">Avg ROI</div><div class="kpi-value" id="kpi-roi">—</div><div class="kpi-sub pos" id="kpi-top">—</div></div>
+<div class="kpi"><div class="kpi-label">Total Bedrooms</div><div class="kpi-value" id="kpi-beds">—</div><div class="kpi-sub" id="kpi-area">—</div></div>
+</div>
+<div class="grid">
+<div class="card wide"><div class="card-title">Purchase Price vs Current Value</div><div class="card-desc">Capital appreciation per property</div><div id="chart-bar"></div></div>
+<div class="card"><div class="card-title">ROI % Ranking</div><div class="card-desc">Return on investment per property</div><div id="chart-roi"></div></div>
+<div class="card"><div class="card-title">Portfolio Composition</div><div class="card-desc">Breakdown by property type</div><div id="chart-donut"></div></div>
+<div class="card"><div class="card-title">Price vs Stand Size</div><div class="card-desc">Value per m² efficiency</div><div id="chart-scatter"></div></div>
+<div class="card"><div class="card-title">Acquisition Timeline</div><div class="card-desc">Cumulative portfolio cost over time</div><div id="chart-timeline"></div></div>
+<div class="card wide"><div class="card-title">Property Ledger</div><div class="card-desc">Full portfolio breakdown</div>
+<div style="overflow-x:auto"><table><thead><tr><th>ID</th><th>Address</th><th>Type</th><th>Beds</th><th>Purchase Price</th><th>Current Value</th><th>ROI</th><th>Stand m²</th></tr></thead><tbody id="table-body"></tbody></table></div>
+</div>
+</div>
+<footer><div>PropertyOS &mdash; <span id="foot-count">0</span> properties &middot; Values in ZAR (R)</div><div id="foot-date"></div></footer>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const fmt = v => 'R'+Math.round(v).toLocaleString('en-ZA');
+const fmtM = v => 'R'+(v/1e6).toFixed(2)+'M';
+const roi = d => ((d['Current Value (R)']-d['Purchase Price (R)'])/d['Purchase Price (R)']*100);
+const L = (e={}) => ({paper_bgcolor:'transparent',plot_bgcolor:'transparent',font:{family:'monospace',color:'#6b7498',size:11},margin:{t:10,b:50,l:70,r:20},xaxis:{gridcolor:'#1e2535',zerolinecolor:'#1e2535'},yaxis:{gridcolor:'#1e2535',zerolinecolor:'#1e2535'},legend:{bgcolor:'transparent'},colorway:['#c8f53e','#3ee8f5','#f5833e','#a855f7'],...e});
+const C = {displayModeBar:false,responsive:true};
+const TC = {'Freehold House':'#c8f53e','Sectional Title Apartment':'#3ee8f5','Student Commune':'#a855f7','Freehold Cottage':'#f5833e'};
+const pill = t => {
+  if(t.includes('Freehold House')) return '<span class="pill fh">'+t+'</span>';
+  if(t.includes('Sectional')) return '<span class="pill st">'+t+'</span>';
+  if(t.includes('Commune')) return '<span class="pill sc">'+t+'</span>';
+  return '<span class="pill fc">'+t+'</span>';
+};
+$('browse-btn').onclick = () => $('file-input').click();
+$('file-input').onchange = e => load(e.target.files[0]);
+$('drop-zone').ondragover = e => e.preventDefault();
+$('drop-zone').ondrop = e => { e.preventDefault(); load(e.dataTransfer.files[0]); };
+$('reset-btn').onclick = () => { $('dashboard').classList.remove('visible'); setTimeout(()=>{ $('dashboard').classList.remove('show'); $('upload-screen').classList.remove('hide'); },400); };
+function load(file){
+  if(!file||!file.name.endsWith('.json')){alert('Please upload a .json file');return;}
+  const r=new FileReader();
+  r.onload=e=>{try{const d=JSON.parse(e.target.result);if(!Array.isArray(d)||!d.length)throw new Error('Empty');build(d,file.name);}catch(e){alert('JSON error: '+e.message);}};
+  r.readAsText(file);
+}
+function build(data,fname){
+  $('upload-screen').classList.add('hide');
+  $('dashboard').classList.add('show');
+  setTimeout(()=>$('dashboard').classList.add('visible'),50);
+  const tv=data.reduce((s,d)=>s+d['Current Value (R)'],0);
+  const tc=data.reduce((s,d)=>s+d['Purchase Price (R)'],0);
+  const ar=data.reduce((s,d)=>s+roi(d),0)/data.length;
+  const tb=data.reduce((s,d)=>s+d['Bedrooms'],0);
+  const tr2=data.reduce((a,b)=>roi(a)>roi(b)?a:b);
+  const types=[...new Set(data.map(d=>d['Property Type']))].length;
+  $('kpi-count').textContent=data.length;
+  $('kpi-types').textContent=types+' property types';
+  $('kpi-value').textContent=fmtM(tv);
+  $('kpi-gain').textContent='↑ '+fmtM(tv-tc)+' gain';
+  $('kpi-cost').textContent=fmtM(tc);
+  $('kpi-avg').textContent='Avg '+fmt(tc/data.length);
+  $('kpi-roi').textContent=ar.toFixed(1)+'%';
+  $('kpi-top').textContent='Top: '+tr2['Property ID']+' ('+roi(tr2).toFixed(1)+'%)';
+  $('kpi-beds').textContent=tb;
+  $('kpi-area').textContent=data[0]?.Area??'';
+  $('foot-count').textContent=data.length;
+  $('foot-date').textContent='Generated '+new Date().toLocaleDateString('en-ZA',{year:'numeric',month:'long',day:'numeric'});
+  const s=[...data].sort((a,b)=>(b['Current Value (R)']-b['Purchase Price (R)'])-(a['Current Value (R)']-a['Purchase Price (R)']));
+  Plotly.newPlot('chart-bar',[{name:'Purchase Price',x:s.map(d=>d['Property ID']),y:s.map(d=>d['Purchase Price (R)']),type:'bar',marker:{color:'rgba(200,245,62,0.3)',line:{color:'#c8f53e',width:1}}},{name:'Current Value',x:s.map(d=>d['Property ID']),y:s.map(d=>d['Current Value (R)']),type:'bar',marker:{color:'rgba(62,232,245,0.55)',line:{color:'#3ee8f5',width:1}}}],{...L({barmode:'group',yaxis:{gridcolor:'#1e2535',zerolinecolor:'#1e2535',tickformat:',.0f',tickprefix:'R'}}),height:300},C);
+  const rs=[...data].sort((a,b)=>roi(a)-roi(b));
+  const rv=rs.map(d=>roi(d));
+  Plotly.newPlot('chart-roi',[{x:rv,y:rs.map(d=>d['Property ID']),type:'bar',orientation:'h',text:rv.map(v=>v.toFixed(1)+'%'),textposition:'outside',textfont:{color:'#c8f53e',size:10},marker:{color:rv.map(v=>'rgba(200,245,62,'+(0.2+(v/30)*0.7)+')'),line:{color:'#c8f53e',width:0.5}}}],{...L({margin:{t:10,b:40,l:70,r:60},xaxis:{gridcolor:'#1e2535',zerolinecolor:'#1e2535',ticksuffix:'%'}}),height:340},C);
+  const tc2={};data.forEach(d=>{tc2[d['Property Type']]=(tc2[d['Property Type']]||0)+1;});
+  const tk=Object.keys(tc2);
+  Plotly.newPlot('chart-donut',[{labels:tk,values:tk.map(k=>tc2[k]),type:'pie',hole:0.55,marker:{colors:tk.map(k=>TC[k]||'#888'),line:{color:'#0a0d14',width:3}},textfont:{color:'#e8ecf5',size:11},textinfo:'label+percent'}],{...L({margin:{t:20,b:20,l:20,r:20},showlegend:false}),height:300},C);
+  const tl=[...new Set(data.map(d=>d['Property Type']))];
+  Plotly.newPlot('chart-scatter',tl.map(type=>{const f=data.filter(d=>d['Property Type']===type);return{name:type,x:f.map(d=>d['Stand Size (m2)']),y:f.map(d=>d['Purchase Price (R)']),text:f.map(d=>d['Property ID']),mode:'markers',type:'scatter',marker:{size:f.map(d=>Math.max(10,d.Bedrooms*5)),color:TC[type]||'#888',opacity:0.8}};}),{...L({margin:{t:10,b:60,l:80,r:20},xaxis:{gridcolor:'#1e2535',zerolinecolor:'#1e2535',title:{text:'Stand Size (m²)',font:{color:'#6b7498'}}},yaxis:{gridcolor:'#1e2535',zerolinecolor:'#1e2535',tickformat:',.0f',tickprefix:'R',title:{text:'Purchase Price',font:{color:'#6b7498'}}}}),height:320},C);
+  const dt=[...data].filter(d=>d['Purchase Date']).sort((a,b)=>new Date(a['Purchase Date'])-new Date(b['Purchase Date']));
+  let cum=0;const tx=[],ty=[];
+  dt.forEach(d=>{cum+=d['Purchase Price (R)'];tx.push(d['Purchase Date']);ty.push(cum);});
+  Plotly.newPlot('chart-timeline',[{x:tx,y:ty,type:'scatter',mode:'lines+markers',fill:'tozeroy',line:{color:'#c8f53e',width:2,shape:'spline'},fillcolor:'rgba(200,245,62,0.07)',marker:{color:'#c8f53e',size:7}}],{...L({margin:{t:10,b:60,l:90,r:20},yaxis:{gridcolor:'#1e2535',zerolinecolor:'#1e2535',tickformat:',.0f',tickprefix:'R'}}),height:300},C);
+  const tb2=$('table-body');tb2.innerHTML='';
+  const mr=Math.max(...data.map(d=>roi(d)));
+  [...data].sort((a,b)=>roi(b)-roi(a)).forEach(d=>{const r=roi(d);const tr3=document.createElement('tr');tr3.innerHTML='<td style="color:var(--muted)">'+d['Property ID']+'</td><td>'+d['Address']+'</td><td>'+pill(d['Property Type'])+'</td><td style="text-align:center">'+d['Bedrooms']+'</td><td>'+fmt(d['Purchase Price (R)'])+'</td><td style="color:var(--accent2)">'+fmt(d['Current Value (R)'])+'</td><td style="color:var(--accent)">'+r.toFixed(1)+'%</td><td>'+(d['Stand Size (m2)']??'—')+'</td>';tb2.appendChild(tr3);});
+}
+</script>
+</body>
+</html>
