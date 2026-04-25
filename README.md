@@ -109,7 +109,7 @@ His work sits at the intersection of legal and regulatory thinking, risk and dat
 
 PropertyOS reflects that approach — a practical, data-driven tool built not to impress, but to work.
 
-🔗 [LinkedIn](https://linkedin.com/in/nkosana-mlotshwa763b1a2a1) | 📧 nkosanamlotshwa2@gmail.com
+🔗 [LinkedIn](https://www.linkedin.com/in/nkosana-mlotshwa-763b1a2a1/) | 📧 nkosanamlotshwa2@gmail.com
 
 ---
 
