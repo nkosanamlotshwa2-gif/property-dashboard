@@ -107,7 +107,7 @@ He holds an LLB Honours degree from the University of Pretoria (GPA: 71%), along
 
 His work sits at the intersection of legal and regulatory thinking, risk and data analytics, and systems design with a focus on financial services, banking, property and technology. He approaches business problems the way an engineer approaches a structure: starting with the foundation, mapping the mechanics, and building solutions that scale.
 
-PropertyOS reflects that approach — a practical, data-driven tool built not to impress, but to work.
+PropertyOS reflects that approach, a practical, data-driven tool built not to impress, but to work.
 
 🔗 [LinkedIn](https://www.linkedin.com/in/nkosana-mlotshwa-763b1a2a1/) | 📧 nkosanamlotshwa2@gmail.com
 
