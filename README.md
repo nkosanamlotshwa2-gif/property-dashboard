@@ -10,7 +10,7 @@
 
 PropertyOS started as a personal problem worth solving.
 
-As a property investor managing a growing portfolio across Westdene, Johannesburg, I found that existing tools were either too expensive, too complex, or simply not built for the South African market. Spreadsheets were fragile. Power BI required a paid licence and a backend. Nothing gave me a clean, fast, shareable view of my portfolio without friction.
+As a Graduate consultant and Business Analyst, while working on a Property Analysis report for an investment portfolio across Westdene, Johannesburg, I found that existing tools were either too expensive, too complex, or simply not built for the South African market. Spreadsheets were fragile. Power BI required a paid licence and a backend. Nothing gave me a clean, fast, shareable view of my portfolio without friction.
 
 So I built one.
 
