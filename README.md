@@ -94,7 +94,7 @@ The dashboard accepts any JSON file in the following format:
 
 ## 👤 About the Developer
 
-Built by **Nkosana Mlotshwa** who is a graduate consultant and Business Analyst based in Johannesburg, South Africa.
+Built by **Nkosana Mlotshwa** a graduate consultant and Business Analyst based in Johannesburg, South Africa.
 
 This project is part of a broader effort to build practical, data-driven tools for independent property investors in South Africa.
 
