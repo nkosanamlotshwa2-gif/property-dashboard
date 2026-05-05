@@ -1,4 +1,4 @@
-# PropertyOS | A Portfolio Intelligence Dashboard
+# PropertyOS - A Portfolio Intelligence Dashboard
 
 ![PropertyOS](https://img.shields.io/badge/PropertyOS-v21-34d399?style=for-the-badge&labelColor=050f1a)
 ![Properties](https://img.shields.io/badge/properties-24-22d3ee?style=for-the-badge&labelColor=050f1a)
