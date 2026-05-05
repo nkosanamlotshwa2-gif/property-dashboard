@@ -6,7 +6,7 @@
 ![Zero Backend](https://img.shields.io/badge/zero_backend-browser_only-fb923c?style=for-the-badge&labelColor=050f1a)
 ![License](https://img.shields.io/badge/license-MIT-34d399?style=for-the-badge&labelColor=050f1a)
 
-> A zero-dependency, browser-based property portfolio intelligence platform. Drop in a JSON file — the dashboard renders instantly. No server, no build tools, no cost.
+> A zero-dependency, browser-based property portfolio intelligence platform. Drop in a JSON file and the dashboard renders instantly. No server, no build tools, no cost.
 
 ---
 
@@ -18,9 +18,9 @@ He holds an LLB Honours degree from the University of Pretoria, alongside profes
 
 His work sits at the intersection of legal and regulatory thinking, risk and data analytics, and systems design — with a focus on financial services, banking, property investment and technology. He approaches business problems the way an engineer approaches a structure: starting with the foundation, mapping the mechanics, and building solutions that scale.
 
-PropertyOS reflects that approach — a practical, data-driven tool built not to impress, but to work.
+PropertyOS reflects that approach, it is a practical, data-driven tool built not to impress, but to work.
 
-🔗 [LinkedIn](https://linkedin.com/in/nkosana-mlotshwa763b1a2a1) · 📧 nkosanamlotshwa2@gmail.com · 🌐 [Live Dashboard](https://nkosanamlotshwa2-gif.github.io/property-dashboard/PropertyOS_v21.html)
+🔗 [LinkedIn](https://www.linkedin.com/in/nkosana-mlotshwa763b1a2a1) · 📧 nkosanamlotshwa2@gmail.com · 🌐 [Live Dashboard](https://nkosanamlotshwa2-gif.github.io/property-dashboard/PropertyOS_v21.html)
 
 ---
 
@@ -28,11 +28,11 @@ PropertyOS reflects that approach — a practical, data-driven tool built not to
 
 PropertyOS started as a professional frustration.
 
-While preparing a property investment analysis across multiple nodes in Gauteng and the Western Cape, the same wall appeared — existing tools were either paywalled, cloud-dependent, or built for markets that bear no resemblance to the South African property landscape. Spreadsheets were fragile. Power BI required a licence and a data pipeline. Nothing produced a clean, fast, shareable portfolio view without friction.
+While preparing a property investment analysis across multiple nodes in Gauteng and the Western Cape, the same wall appeared, the existing tools were either too expensive, cloud-dependent, or built for markets that bear no resemblance to the South African property landscape. Spreadsheets were fragile. Power BI required a licence and a data pipeline. Nothing produced a clean, fast, shareable portfolio view without friction.
 
 At some point the decision was made to stop looking and start building.
 
-PropertyOS is a single HTML file. You open it in any browser, load a JSON dataset, and the full platform renders — six chart panels, a live KPI strip, an expandable property inventory, a deeds and acquisition register, an AI portfolio assistant, and a scenario simulator. Nothing is sent anywhere. Everything runs locally.
+PropertyOS is a single HTML file. You open it in any browser, load a JSON dataset, and the full platform renders, six chart panels, a live KPI strip, an expandable property inventory, a deeds and acquisition register, an AI portfolio assistant, and a scenario simulator. Nothing is sent anywhere. Everything runs locally.
 
 ---
 
@@ -93,40 +93,40 @@ The sample dataset represents a 24-property portfolio across 4 investment nodes 
 ## Features
 
 ### Dashboard
-- **Hero KPI Strip** — Portfolio value, blended yield, monthly income and average vacancy at a glance, with capital gain trend indicators
-- **Strategy Quadrant** — Bubble chart plotting every property by gross yield vs capital gain, sized by portfolio weight and colour-coded by investment node. Click any bubble or node label to isolate it across all panels
-- **Action Required** — Automatically surfaced alerts for underperforming yield, above-average vacancy, elevated acquisition cost overhead and registration bottlenecks, with a scrollable alert feed
-- **Income Trend** — 12-month rolling income projection with node filtering
-- **Portfolio Composition** — Donut chart breaking down the portfolio by property type with an interactive legend
-- **Node Performance Grid** — Gross yield, monthly income and vacancy rate per node, clickable for full-dashboard focus
-- **Scenario Simulator** — Inline sidebar stress-testing with real-time delta readouts
+- **Hero KPI Strip** : Portfolio value, blended yield, monthly income and average vacancy at a glance, with capital gain trend indicators
+- **Strategy Quadrant** : Bubble chart plotting every property by gross yield vs capital gain, sized by portfolio weight and colour-coded by investment node. Click any bubble or node label to isolate it across all panels
+- **Action Required** : Automatically surfaced alerts for underperforming yield, above-average vacancy, elevated acquisition cost overhead and registration bottlenecks, with a scrollable alert feed
+- **Income Trend** : 12-month rolling income projection with node filtering
+- **Portfolio Composition** : Donut chart breaking down the portfolio by property type with an interactive legend
+- **Node Performance Grid** : Gross yield, monthly income and vacancy rate per node, clickable for full-dashboard focus
+- **Scenario Simulator** : Inline sidebar stress-testing with real-time delta readouts
 
 ### Properties
-- **Expandable Inventory** — Full property list with inline financial detail drawers, node filtering, search by address or type, and multi-field sort
-- **Property Modal** — One-click deep-dive showing all financial, acquisition and tenancy data for any property
+- **Expandable Inventory** : Full property list with inline financial detail drawers, node filtering, search by address or type, and multi-field sort
+- **Property Modal** : One-click deep-dive showing all financial, acquisition and tenancy data for any property
 
 ### Analytics
-- **Value vs Purchase Price** — Per-property capital appreciation bar chart
-- **Gross Yield Ranking** — Horizontal ranking of all properties by annualised yield
-- **Tenant Profile Mix** — Breakdown of professional, student and corporate tenants with vacancy context
-- **Acquisition Cost Breakdown** — Transfer and bond registration costs per property
+- **Value vs Purchase Price** : Per-property capital appreciation bar chart
+- **Gross Yield Ranking** : Horizontal ranking of all properties by annualised yield
+- **Tenant Profile Mix** : Breakdown of professional, student and corporate tenants with vacancy context
+- **Acquisition Cost Breakdown** : Transfer and bond registration costs per property
 
 ### Deeds & Costs
-- **Complete Acquisition Register** — Full table with purchase price, transfer cost, bond registration cost, total acquisition cost, deeds lodgement date, registration date, days to register and efficiency rating per property
-- **Transfer & Bond Cost Chart** — Stacked bar chart per property
-- **Deeds Registration Timeline** — Days-to-register per property benchmarked against portfolio average
+- **Complete Acquisition Register** : Full table with purchase price, transfer cost, bond registration cost, total acquisition cost, deeds lodgement date, registration date, days to register and efficiency rating per property
+- **Transfer & Bond Cost Chart** : Stacked bar chart per property
+- **Deeds Registration Timeline** : Days-to-register per property benchmarked against portfolio average
 
 ### AI Assistant
-- **Portfolio Intelligence Chat** — Natural language querying of the full portfolio dataset. Ask about yields, underperforming properties, acquisition costs, deeds timelines, vacancy analysis, node comparisons, income, capital gains and more
-- **Quick-Ask Prompts** — Pre-built common queries for instant insight without typing
+- **Portfolio Intelligence Chat** : Natural language querying of the full portfolio dataset. Ask about yields, underperforming properties, acquisition costs, deeds timelines, vacancy analysis, node comparisons, income, capital gains and more
+- **Quick-Ask Prompts** : Pre-built common queries for instant insight without typing
 
 ### Scenario Simulator
-- **SARB Repo Rate stress test** — Model the cash flow impact of rate changes on bonded properties
-- **Vacancy stress** — Apply additional vacancy across the portfolio and see net income impact
-- **Rental growth** — Project escalation across all income streams
-- **Maintenance reserve** — Set aside a percentage of gross income and model net returns
-- **Capital value shift** — Simulate market value movements up or down
-- **Real-time impact deltas** — Simulated vs baseline for income, net income, portfolio value and gross yield, with per-property impact ranking
+- **SARB Repo Rate stress test** : Model the cash flow impact of rate changes on bonded properties
+- **Vacancy stress** : Apply additional vacancy across the portfolio and see net income impact
+- **Rental growth** : Project escalation across all income streams
+- **Maintenance reserve** : Set aside a percentage of gross income and model net returns
+- **Capital value shift** : Simulate market value movements up or down
+- **Real-time impact deltas** : Simulated vs baseline for income, net income, portfolio value and gross yield, with per-property impact ranking
 
 ---
 
@@ -211,14 +211,15 @@ property-dashboard/
 ---
 
 ## Roadmap
+The next development cycle of Property-OS will include:
 
-- [ ] PDF export — one-click investor-grade report generation from any panel
-- [ ] Cash flow tracker — monthly income, maintenance expenses and net yield per property
-- [ ] Bond and mortgage tracker — outstanding balances, equity build and loan-to-value ratios by property
-- [ ] Capital growth projections — 5 and 10-year forward modelling with SARB rate scenarios
-- [ ] Multi-currency support — USD and GBP conversion for offshore-focused portfolios
-- [ ] Shareable snapshot links — generate a read-only URL from any portfolio state
-- [ ] Excel and CSV import — accept broader data formats beyond JSON
+- [ ] PDF export : one-click investor-grade report generation from any panel
+- [ ] Cash flow tracker : monthly income, maintenance expenses and net yield per property
+- [ ] Bond and mortgage tracker : outstanding balances, equity build and loan-to-value ratios by property
+- [ ] Capital growth projections : 5 and 10-year forward modelling with SARB rate scenarios
+- [ ] Multi-currency support : USD and GBP conversion for offshore-focused portfolios
+- [ ] Shareable snapshot links : generate a read-only URL from any portfolio state
+- [ ] Excel and CSV import : accept broader data formats beyond JSON
 
 ---
 
