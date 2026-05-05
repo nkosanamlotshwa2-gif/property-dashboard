@@ -16,7 +16,7 @@
 
 He holds an LLB Honours degree from the University of Pretoria, alongside professional certifications in Microsoft Power BI, Risk Management from the New York Institute of Finance, and Google Data Analytics. He is currently completing a BSc in Computer Science through the University of London, with CIMA planned.
 
-His work sits at the intersection of legal and regulatory thinking, risk and data analytics, and systems design — with a focus on financial services, banking, property investment and technology. He approaches business problems the way an engineer approaches a structure: starting with the foundation, mapping the mechanics, and building solutions that scale.
+His work sits at the intersection of legal and regulatory thinking, risk and data analytics, and systems design with a focus on financial services, banking, property investment and technology. He approaches business problems the way an engineer approaches a structure: starting with the foundation, mapping the mechanics, and building solutions that scale.
 
 PropertyOS reflects that approach, it is a practical, data-driven tool built not to impress, but to work.
 
